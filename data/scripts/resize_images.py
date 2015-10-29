@@ -8,15 +8,15 @@ import time
 import skimage.io as io
 from skimage.transform import resize
 
-from dip import load_raw_images, load_mask_images
+from dip.load_data import load_raw_images, load_mask_images
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('shape_0', type=int)
-parser.add_argument('shape_1', type=int)
+parser.add_argument('--shape0', type=int, default=1424)
+parser.add_argument('--shape1', type=int, default=2136)
 args = parser.parse_args()
 
-shape = (args.shape_0, args.shape_1)
+shape = (args.shape0, args.shape1)
 
 raw_dataset = load_raw_images()
 for i, f in enumerate(raw_dataset.filenames):
