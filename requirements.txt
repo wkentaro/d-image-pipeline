@@ -1,0 +1,7 @@
+numpy==1.10.1
+PyYAML==3.11
+scikit-learn==0.16.1
+scikit-neuralnetwork==0.3
+scipy==0.16.1
+Theano==0.7.0
+wheel==0.24.0
