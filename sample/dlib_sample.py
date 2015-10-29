@@ -18,9 +18,17 @@ image_file = args.filename
 img = io.imread(image_file)
 # Locations of candidate objects will be saved into rects
 rects = []
-dlib.find_candidate_object_locations(img, rects, min_size=1000)
+dlib.find_candidate_object_locations(
+    img,
+    rects,
+    kvals=(50, 200, 3),
+    min_size=20,
+    max_merging_iterations=50,
+    )
 
 dst = selective_search.draw_rects(img, rects)
+decomposed = selective_search.decompose(img, rects, num=3)
 
-io.imshow(dst)
-io.show()
+for img in [dst] + decomposed:
+    io.imshow(img)
+    io.show()
