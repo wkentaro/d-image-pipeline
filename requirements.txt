@@ -5,3 +5,4 @@ scikit-neuralnetwork==0.3
 scipy==0.16.1
 Theano==0.7.0
 wheel==0.24.0
+dlib==18.17.100
