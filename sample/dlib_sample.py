@@ -5,6 +5,9 @@ import argparse
 
 import dlib
 from skimage import io
+import cv2
+
+from dip import selective_search
 
 
 parser = argparse.ArgumentParser()
@@ -17,10 +20,7 @@ img = io.imread(image_file)
 rects = []
 dlib.find_candidate_object_locations(img, rects, min_size=1000)
 
-win = dlib.image_window()
-win.set_image(img)
-for k, d in enumerate(rects):
-    print("Detection {}: Left: {} Top: {} Right: {} Bottom: {}".format(
-        k, d.left(), d.top(), d.right(), d.bottom()))
-    win.add_overlay(d)
-dlib.hit_enter_to_continue()
+dst = selective_search.draw_rects(img, rects)
+
+io.imshow(dst)
+io.show()
