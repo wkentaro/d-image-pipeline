@@ -20,9 +20,9 @@ def load_mask_images():
     return dataset
 
 
-def load_image_files(files):
+def load_image_files(files, as_grey=False):
     for f in files:
-        yield imread(f)
+        yield imread(f, as_grey=as_grey)
 
 
 def load_rests():
