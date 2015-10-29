@@ -15,12 +15,11 @@ from dip.load_data import (
 from dip.mask import convert_masks_to_target
 
 
-_this_dir = os.path.dirname(os.path.abspath(__file__))
 _IMAGE_SHAPE = (712, 1068)
 
 
 def get_dataset():
-    cache_file = os.path.join(_this_dir, '../tmp_data/dataset.pkl.gz')
+    cache_file = 'dataset_cache.pkl.gz')
     if os.path.exists(cache_file):
         with open(cache_file, 'rb') as f:
             dataset = pickle.load(f)
