@@ -23,3 +23,12 @@ def load_mask_images():
 def load_image_files(files):
     for f in files:
         yield imread(f)
+
+
+def load_rests():
+    data_path = os.path.join(DATA_DIR, 'rects.pkl.gz')
+    if not os.path.exists(data_path):
+        print("'rects.pkl.gz' does not exist")
+        quit()
+    with gzip.open(data_path, 'rb') as f:
+        return pickle.load(f)
