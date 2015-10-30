@@ -7,6 +7,7 @@ from setuptools import setup, find_packages
 setup(
     name='dip',
     version='0.1',
+    package_dir={'': 'lib'},
     packages=find_packages(),
     description='deep image pipeline',
     long_description=open('README.rst').read(),
